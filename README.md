@@ -1,17 +1,31 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
 
-### Date created
-Include the date you created this project and README file.
 
-### Project Title
-Replace the Project Title
+# 👨‍💻 Exploratory Data Analysis of Bikeshare Data
+Simple python script to analyze bikeshare data via console input.
 
-### Description
-Describe what your project is about and what it does
+## 🔧 Usage
+Run `bikeshare.py` and follow the console prompts.
 
-### Files used
-Include the files used
+## 🔍 Description
+This analysis script allows the user to choose one of three datasets - one for each city:
+- New York
+- Chicago
+- Washington
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+The dataset is then filtered and then simple summary statistics are calculated.
+
+
+
+
+The user can also repeat analysis with a different city/filter criteria or examine 5 records of raw data.
+
+## 📁 Files used
+- bikeshare.py (analysis script)
+- README.md (you're reading this right now)
+## 📅 Date created
+April 27, 2022
+
+##  🧾Credits
+### 📚 Docs
+- 🐼 [Pandas](ttps://pandas.pydata.org/docs/reference/index.html#api)
 
