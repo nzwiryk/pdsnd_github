@@ -174,7 +174,12 @@ def time_stats(df: pd.DataFrame):
 
 def station_stats(df: pd.DataFrame):
     """
-    Displays statistics on the most popular stations and trip.
+    Displays statistics on the most popular stations and trips.
+
+    Gets:
+      - the most common start station
+      - the most common end station
+      - the most common trip (start/end combination)
 
     Args:
         (pd.DataFrame) df - input dataframe containing filtered data to be analyzed
