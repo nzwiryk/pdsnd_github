@@ -120,6 +120,7 @@ def load_data(city: str, month: str, day: str) -> pd.DataFrame:
     Returns:
         (pd.DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     """
+    # gets the filename depending on the city
     city_datafile = CITY_DATA[city]
     # defines what columns are timestamps
     date_columns = ['Start Time', 'End Time']
@@ -133,9 +134,11 @@ def load_data(city: str, month: str, day: str) -> pd.DataFrame:
     # creates day of week column from start time
     df['day'] = pd.DatetimeIndex(df['Start Time']).dayofweek
     # check if user applied month filter and filters
+    # if they did, apply filter
     if month != 'all':
         df = df[df.month == MONTHS.index(month)]
     # check if user applied day filter and filters
+    # if they did, apply filter
     if day != 'all':
         df = df[df.day == DAYS.index(day)]
     return df
