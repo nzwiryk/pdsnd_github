@@ -125,12 +125,13 @@ def load_data(city: str, month: str, day: str) -> pd.DataFrame:
     date_columns = ['Start Time', 'End Time']
     # reads in dataframe from city data file
     # reads first column as index and to_datetimes date_columns on loading
-    df = pd.read_csv(f'{city_datafile}', index_col=0, parse_dates=date_columns)
+    raw_df = pd.read_csv(f'{city_datafile}', index_col=0, parse_dates=date_columns)
     # 1 = january, 12 = december
-    # creates month column from start time
-    df['month'] = pd.DatetimeIndex(df['Start Time']).month
     # monday = 0, sunday = 6
-    # creates day of week column from start time
+    df = raw_df.assign(month=pd.DatetimeIndex(raw_df['Start Time']).month, # creates month column from start time
+                       day=pd.DatetimeIndex(raw_df['Start Time']).dayofweek # creates day of week column from start time
+                       )
+
     df['day'] = pd.DatetimeIndex(df['Start Time']).dayofweek
     # check if user applied month filter and filters
     if month != 'all':
