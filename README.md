@@ -16,7 +16,7 @@ This analysis script allows the user to choose one of three datasets - one for e
 Once the user selects a city, the corresponding data file (not included here) will be loaded. 
 Data can be filtered by month and day of the week once the city is selected.<br>
 
-###Summary Statistics
+### Summary Statistics
 - Time
   - Most common month for bikeshare usage
   - Most common day of the week for bikeshare usage
