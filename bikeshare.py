@@ -122,17 +122,20 @@ def load_data(city: str, month: str, day: str) -> pd.DataFrame:
     """
     # gets the filename depending on the city
     city_datafile = CITY_DATA[city]
+    start_time_col_name = 'Start Time'
+    end_time_col_name = 'End Time'
     # defines what columns are timestamps
-    date_columns = ['Start Time', 'End Time']
+    date_columns = [start_time_col_name, end_time_col_name]
     # reads in dataframe from city data file
     # reads first column as index and to_datetimes date_columns on loading
-    df = pd.read_csv(f'{city_datafile}', index_col=0, parse_dates=date_columns)
+    raw_df = pd.read_csv(f'{city_datafile}', index_col=0, parse_dates=date_columns)
     # 1 = january, 12 = december
-    # creates month column from start time
-    df['month'] = pd.DatetimeIndex(df['Start Time']).month
     # monday = 0, sunday = 6
-    # creates day of week column from start time
-    df['day'] = pd.DatetimeIndex(df['Start Time']).dayofweek
+    df = raw_df.assign(month=pd.DatetimeIndex(raw_df[start_time_col_name]).month,  # creates month column
+                       day=pd.DatetimeIndex(raw_df[start_time_col_name]).dayofweek,  # creates day of week column
+                       hour=pd.DatetimeIndex(raw_df[start_time_col_name]).hour   # creates hour column
+                       )
+
     # check if user applied month filter and filters
     # if they did, apply filter
     if month != 'all':
@@ -165,7 +168,6 @@ def time_stats(df: pd.DataFrame):
     most_common_day = DAYS[int(df['day'].mode())]
     print(f'the most common day of the week is {most_common_day}')
     # gets the most common start hour and prints
-    df['hour'] = pd.DatetimeIndex(df['Start Time']).hour
     most_common_hour = int(df['hour'].mode())
     print(f'the most common hour of the day is {most_common_hour}')
     print("\nThis took %s seconds." % (time.time() - start_time))
