@@ -12,13 +12,26 @@ This analysis script allows the user to choose one of three datasets - one for e
 - Chicago
 - Washington
 
-The dataset is then filtered and then simple summary statistics are calculated.
-
 ### Data Import and Filtering
 Once the user selects a city, the corresponding data file (not included here) will be loaded. 
 Data can be filtered by month and day of the week once the city is selected.<br>
 
-
+###Summary Statistics
+- Time
+  - Most common month for bikeshare usage
+  - Most common day of the week for bikeshare usage
+  - Most common start hour of bikeshare trip
+- Station
+  - Most common starting station
+  - Most common ending station
+  - Most common start/end combination (trip)
+- Trip Duration
+  - Total travel time
+  - Average travel time
+- User
+  - Customer count by user type
+  - Customer count by gender
+  - Birth date (youngest, oldest, most common age)
 
 The user can also repeat analysis with a different city/filter criteria or examine 5 records of raw data.
 
