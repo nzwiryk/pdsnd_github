@@ -43,5 +43,5 @@ April 27, 2022
 
 ##  🧾Credits
 ### 📚 Docs
-- 🐼 [Pandas](ttps://pandas.pydata.org/docs/reference/index.html#api)
+- 🐼 [Pandas](https://pandas.pydata.org/docs/reference/index.html#api)
 
